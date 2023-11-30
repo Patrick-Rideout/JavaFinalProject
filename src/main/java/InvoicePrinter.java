@@ -11,7 +11,7 @@ public class InvoicePrinter {
        printStream.println( "======================================================");
        printStream.printf("Invoice Number: %d", invoice.getInvoiceNumber());
        printStream.printf("\nDate: %s", invoice.getInvoiceDate());
-       printStream.printf("\nDue Date: ");
+       printStream.printf("\nDue Date: %s", invoice.getFormattedDueDate());
        printStream.printf("\nBill To:");
        printStream.printf("\nCustomer Name: \u001B[32m%s", invoice.getCustomer().getName());
        printStream.printf("\nAddress: \u001B[32m%s", invoice.getCustomer().getAddress().getFormattedAddress());
@@ -35,7 +35,7 @@ public class InvoicePrinter {
    public void printInvoiceItems(Invoice invoice, PrintStream printStream) {
       for (InvoiceItem item : invoice.getInvoiceItems()) {
          printStream.printf("%s                       %d         %.2f        %.2f\n",item.getItem().description,
-                 item.getQuantity(), item.getItem().price, item.getItem().calculateItemTotal());
+                 item.getQuantity(), item.getItem().price, item.calculateTotal());
       }
    }
 

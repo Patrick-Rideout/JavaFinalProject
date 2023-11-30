@@ -3,9 +3,9 @@ public class InvoiceItem {
     private BillableItems item;
     private int quantity;
 
-    public InvoiceItem(BillableItems item) {
+    public InvoiceItem(BillableItems item, int quantity) {
         this.item = item;
-        this.quantity = item.getQuantity();
+        this.quantity = quantity;
     }
 
     public BillableItems getItem() {
@@ -25,6 +25,6 @@ public class InvoiceItem {
     }
 
     public double calculateTotal() {
-        return item.calculateItemTotal();
+        return item.getPrice() * this.quantity;
     }
 }

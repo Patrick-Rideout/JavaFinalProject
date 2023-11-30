@@ -4,15 +4,17 @@ import java.util.ArrayList;
 
 class Invoice {
     private int invoiceNumber;
-    private LocalDate invoiceDate;
     private Customer customer;
     private ArrayList<InvoiceItem> invoiceItems;
+    private LocalDate invoiceDate;
+    private LocalDate dueDate;
 
     public Invoice(int invoiceNumber, Customer customer, ArrayList<InvoiceItem> invoiceItems) {
         this.invoiceNumber = invoiceNumber;
-        this.invoiceDate = LocalDate.now();
         this.customer = customer;
         this.invoiceItems = invoiceItems;
+        this.invoiceDate = LocalDate.now();
+        this.dueDate = this.invoiceDate.plusDays(30);
     }
 
     public int getInvoiceNumber() {
@@ -47,9 +49,22 @@ class Invoice {
         this.invoiceItems = invoiceItems;
     }
 
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
     public String getFormattedInvoiceDate() {
         DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
         return invoiceDate.format(customFormatter);
+    }
+
+    public String getFormattedDueDate() {
+        DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        return dueDate.format(customFormatter);
     }
 
     public double calculateSubtotal() {
@@ -61,10 +76,8 @@ class Invoice {
     }
 
     public double calculateTax() {
-        // Calculate tax (15% of the invoice amount)
-        double taxPercentage = 0.15; // 15%
-        double taxAmount = calculateSubtotal() * taxPercentage;
-        return taxAmount;
+        double taxPercentage = 0.15;
+        return calculateSubtotal() * taxPercentage;
     }
 
     public double calculateTotalAmountDue() {

@@ -1,13 +1,10 @@
 public class Services extends BillableItems {
 
     private ServiceType type;
-    private int quantity;
-
 
     public Services(ServiceType type) {
         super(type.getDescription(), type.getPrice());
         this.type = type;
-        this.quantity = 1;
     }
 
     public ServiceType getType() {
@@ -21,12 +18,9 @@ public class Services extends BillableItems {
     }
 
     @Override
-    public int getQuantity() {
-        return quantity;
-    }
-
-    @Override
     public double calculateItemTotal() {
         return type.getPrice();
     }
+
+
 }

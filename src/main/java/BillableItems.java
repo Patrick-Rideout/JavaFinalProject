@@ -2,7 +2,6 @@ public class BillableItems {
 
     protected String description;
     protected double price;
-    protected int quantity;
 
     public BillableItems(String description, double price) {
         this.description = description;
@@ -23,14 +22,6 @@ public class BillableItems {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public double calculateItemTotal() {

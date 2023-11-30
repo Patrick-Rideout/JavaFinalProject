@@ -1,22 +1,10 @@
 public class Product extends BillableItems {
-
+    private String description;
+    private double price;
     private int quantity;
 
-    public Product(String description, double price, int quantity) {
+    public Product(String description, double price) {
         super(description, price);
-        this.quantity = quantity;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    @Override
-    public double calculateItemTotal() {
-        return quantity * getPrice();
-    }
 }
