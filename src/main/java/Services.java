@@ -3,7 +3,7 @@ public class Services extends BillableItems {
     private ServiceType type;
 
     public Services(ServiceType type) {
-        super(type.getDescription(), type.getPrice());
+        super(type.getId(), type.getDescription(), type.getPrice());
         this.type = type;
     }
 
