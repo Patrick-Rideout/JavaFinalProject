@@ -3,10 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.PrintStream;
 
+/**
+ * Represents a catalog containing lists of products and services.
+ */
 public class Catalog {
     ArrayList<Product> productArrayList;
     ArrayList<Services> serviceArrayList;
 
+    /**
+     * Constructs a catalog and initializes product and service lists.
+     */
     public Catalog() {
         this.productArrayList = new ArrayList<>();
         this.serviceArrayList = new ArrayList<>();
@@ -14,14 +20,27 @@ public class Catalog {
         this.buildServiceList();
     }
 
+    /**
+     * Retrieves the list of products in the catalog.
+     *
+     * @return The list of products.
+     */
     public ArrayList<Product> getProductList(){
         return productArrayList;
     }
 
-    public ArrayList<Services> getServiceArrayList() {
+    /**
+     * Retrieves the list of services in the catalog.
+     *
+     * @return The list of services.
+     */
+    public ArrayList<Services> getServiceList() {
         return serviceArrayList;
     }
 
+    /**
+     * Builds the initial list of products in the catalog.
+     */
     private void buildProductList(){
         productArrayList.add(new Product("CP001", "Intel Pentium III Processor", 120.00));
         productArrayList.add(new Product("MB002", "ASUS P3B Motherboard", 150.00));
@@ -38,22 +57,35 @@ public class Catalog {
         productArrayList.add(new Product("FN013", "Large metal case", 70.00));
     }
 
+    /**
+     * Builds the initial list of services in the catalog.
+     */
     private void buildServiceList() {
         serviceArrayList.add(new Services(ServiceType.SERVICE1));
         serviceArrayList.add(new Services(ServiceType.SERVICE2));
         serviceArrayList.add(new Services(ServiceType.SERVICE3));
     }
 
+    /**
+     * Prints the catalog details including products and services to the specified PrintStream.
+     *
+     * @param printStream The PrintStream where the catalog details will be printed.
+     */
+    public void printCatalog(PrintStream printStream) {
+        printStream.println("Products:");
+        printStream.printf("%-12s %-10s %-40s %-10s\n", "Product", "ID", "Description", "Price");
+        int i = 1;
+        for (Product product : getProductList()) {
+            printStream.printf("%-12s %-10s %-40s $%.2f\n", "Product " + i, product.getId(), product.getDescription(), product.getPrice());
+            i++;
+        }
 
-//    public void getCatalog(){
-//        PrintStream printStream = new PrintStream(System.out);
-//        InvoicePrinter invoicePrinter = new InvoicePrinter();
-//        Address address = new Address("60 Newfoundland Drive", "St. Johns", "Newfoundland", "A1X 5N8");
-//        Customer customer = new Customer("Josh", address);
-//        Invoice invoice = new Invoice(1001, customer, getProductList());
-//        invoicePrinter.printInvoice(invoice, printStream);
-//    }
-//        productArrayList.add(new InvoiceItem(product1, 200));
-//        productArrayList.add(new InvoiceItem(product2, 1));
-
+        printStream.println("\nServices:");
+        printStream.printf("%-12s %-10s %-40s %-10s\n", "Service", "ID", "Description", "Price");
+        i = 1;
+        for (Services services : getServiceList()) {
+            printStream.printf("%-12s %-10s %-40s $%.2f\n", "Service " + i, services.getId(), services.getDescription(), services.getPrice());
+            i++;
+        }
+    }
 }

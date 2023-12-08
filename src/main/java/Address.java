@@ -1,3 +1,6 @@
+/**
+ * Represents an address with street, city, province, and postal code information.
+ */
 public class Address {
 
     private String street;
@@ -5,6 +8,14 @@ public class Address {
     private String province;
     private String postalCode;
 
+    /**
+     * Constructs an address with specified street, city, province, and postal code.
+     *
+     * @param street     The street information.
+     * @param city       The city information.
+     * @param province   The province information.
+     * @param postalCode The postal code information.
+     */
     public Address(String street, String city, String province, String postalCode) {
         this.street = street;
         this.city = city;
@@ -12,40 +23,12 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
+    /**
+     * Gets the formatted address string including street, city, province, and postal code.
+     *
+     * @return The formatted address string.
+     */
     public String getFormattedAddress() {
         return this.street + '\n' + this.city + ", " + this.province + ' ' + this.postalCode;
     }
-
 }
