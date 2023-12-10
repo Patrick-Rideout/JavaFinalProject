@@ -37,30 +37,12 @@ class Invoice {
     }
 
     /**
-     * Sets the unique invoice number.
-     *
-     * @param invoiceNumber The invoice number to set.
-     */
-    public void setInvoiceNumber(int invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
-    }
-
-    /**
      * Retrieves the date when the invoice was created.
      *
      * @return The invoice date.
      */
     public LocalDate getInvoiceDate() {
         return invoiceDate;
-    }
-
-    /**
-     * Sets the date when the invoice was created.
-     *
-     * @param invoiceDate The invoice date to set.
-     */
-    public void setInvoiceDate(LocalDate invoiceDate) {
-        this.invoiceDate = invoiceDate;
     }
 
     /**
@@ -73,15 +55,6 @@ class Invoice {
     }
 
     /**
-     * Sets the customer associated with the invoice.
-     *
-     * @param customer The customer to associate with the invoice.
-     */
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    /**
      * Retrieves the list of invoice items.
      *
      * @return The list of invoice items.
@@ -91,30 +64,12 @@ class Invoice {
     }
 
     /**
-     * Sets the list of invoice items.
-     *
-     * @param invoiceItems The list of invoice items to set.
-     */
-    public void setInvoiceItems(ArrayList<InvoiceItem> invoiceItems) {
-        this.invoiceItems = invoiceItems;
-    }
-
-    /**
      * Retrieves the due date for the invoice payment.
      *
      * @return The due date for the invoice payment.
      */
     public LocalDate getDueDate() {
         return dueDate;
-    }
-
-    /**
-     * Sets the due date for the invoice payment.
-     *
-     * @param dueDate The due date for the invoice payment to set.
-     */
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
     }
 
     /**
