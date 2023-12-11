@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * A class that allows users to interact with the Invoice and Catalog classes.
+ */
 public class InvoiceApplication {
     public static void main(String[] args) {
 
@@ -34,18 +37,17 @@ public class InvoiceApplication {
             } else if (selection.equals("2")) {
 
                 Address customerAddress = new Address("123 Real Street", "St. John’s", "NL", "A1X 6R3");
-                Customer customer = new Customer("Tosh Bayler", customerAddress );
+                Customer customer = new Customer("Tosh Bayler", customerAddress);
                 ArrayList<InvoiceItem> customerList = new ArrayList<>();
 
                 int[] numbers = {0, 1, 2, 3, 4, 6, 12};
 
-                for (int i: numbers) {
+                for (int i : numbers) {
 
                     InvoiceItem item;
                     if (i == 3) {
                         item = new InvoiceItem(catalog.getProductList().get(i), 2);
-                    }
-                    else {
+                    } else {
                         item = new InvoiceItem(catalog.getProductList().get(i), 1);
                     }
                     customerList.add(item);
@@ -76,25 +78,23 @@ public class InvoiceApplication {
                     String selection2 = input.nextLine();
                     if (selection2.equalsIgnoreCase("N")) {
                         break;
-                    }
-                    else if (selection2.equalsIgnoreCase("Y")) {
+                    } else if (selection2.equalsIgnoreCase("Y")) {
 
                         System.out.println("\nService or Product?(S or P):");
                         String selection3 = input.nextLine();
                         if (selection3.equalsIgnoreCase("S")) {
                             System.out.println("\nService ID:");
                             int id = input.nextInt();
-                            InvoiceItem item = new InvoiceItem(catalog.getServiceList().get(id-1), 1);
+                            InvoiceItem item = new InvoiceItem(catalog.getServiceList().get(id - 1), 1);
                             customerList.add(item);
                             input.nextLine();
-                        }
-                        else if (selection3.equalsIgnoreCase("P")) {
+                        } else if (selection3.equalsIgnoreCase("P")) {
 
                             System.out.println("\nItem ID:");
                             int id = input.nextInt();
                             System.out.println("\nItem Quantity:");
                             int quantity = input.nextInt();
-                            InvoiceItem item = new InvoiceItem(catalog.getProductList().get(id-1), quantity);
+                            InvoiceItem item = new InvoiceItem(catalog.getProductList().get(id - 1), quantity);
                             customerList.add(item);
                             input.nextLine();
                         }
@@ -102,21 +102,19 @@ public class InvoiceApplication {
                 }
                 Invoice invoice = new Invoice(random.nextInt(1000, 9999), customer, customerList);
                 invoicePrinter.printInvoice(invoice, printStream);
-            }
-
-            else if (selection.equals("4")) {
+            } else if (selection.equals("4")) {
                 Address customerAddress = new Address("123 Random Street", "St. Random’s", "RAN", "A1X 6R3");
-                Customer customer = new Customer("Rand Daylor", customerAddress );
+                Customer customer = new Customer("Rand Daylor", customerAddress);
                 ArrayList<InvoiceItem> customerList = new ArrayList<>();
-                int[] numbers = {random.nextInt(0,13), random.nextInt(0,13), random.nextInt(0,13)};
+                int[] numbers = {random.nextInt(0, 13), random.nextInt(0, 13), random.nextInt(0, 13)};
 
-                for (int i: numbers) {
+                for (int i : numbers) {
                     InvoiceItem item;
                     item = new InvoiceItem(catalog.getProductList().get(i), random.nextInt(1, 10));
                     customerList.add(item);
                 }
 
-                InvoiceItem item = new InvoiceItem(catalog.getServiceList().get(random.nextInt(0,3)), 1);
+                InvoiceItem item = new InvoiceItem(catalog.getServiceList().get(random.nextInt(0, 3)), 1);
                 customerList.add(item);
                 Invoice invoice = new Invoice(random.nextInt(1000, 9999), customer, customerList);
                 invoicePrinter.printInvoice(invoice, printStream);

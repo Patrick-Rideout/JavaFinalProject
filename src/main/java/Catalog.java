@@ -25,7 +25,7 @@ public class Catalog {
      *
      * @return The list of products.
      */
-    public ArrayList<Product> getProductList(){
+    public ArrayList<Product> getProductList() {
         return productArrayList;
     }
 
@@ -41,7 +41,7 @@ public class Catalog {
     /**
      * Builds the initial list of products in the catalog.
      */
-    private void buildProductList(){
+    private void buildProductList() {
         productArrayList.add(new Product("CP001", "Intel Pentium III Processor", 120.00));
         productArrayList.add(new Product("MB002", "ASUS P3B Motherboard", 150.00));
         productArrayList.add(new Product("HD003", "Seagate Barracuda 20GB HDD", 100.00));
